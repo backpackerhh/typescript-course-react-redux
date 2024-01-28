@@ -1,10 +1,14 @@
 import { Component, ReactNode } from "react";
 import ReactDOM from "react-dom";
 
-class App extends Component {
+interface AppProps {
+  greet: string
+}
+
+class App extends Component<AppProps> {
   render(): ReactNode {
-    return <div>Hi there!</div>
+    return <div>{this.props.greet}</div>
   }
 }
 
-ReactDOM.render(<App />, document.querySelector("#root"))
+ReactDOM.render(<App greet="Hi there!" />, document.querySelector("#root"))
