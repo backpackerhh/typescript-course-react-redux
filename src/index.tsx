@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 
 interface AppProps {
   greet: string;
@@ -27,4 +27,6 @@ const App: React.FC<AppProps> = ({ greet }) => {
   );
 };
 
-render(<App greet="Hi there!" />, document.querySelector("#root"));
+const container = document.getElementById("root");
+const root = createRoot(container!);
+root.render(<App greet="Hi there!" />);
